@@ -1,0 +1,22 @@
+nav .brand-logo {
+    padding-left: 5px;
+}
+
+.title-header {
+    text-align: center;
+}
+
+.categories img {
+    height: 88px;
+    width: 88px;
+    box-shadow: 3px 2px 5px 0 #c2c2c2;
+    border-radius: 50%;
+}
+
+.categories li {
+    display: inline;
+}
+
+.categories ul {
+    text-align: center;
+}
