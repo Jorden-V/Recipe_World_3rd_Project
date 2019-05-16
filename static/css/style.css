@@ -1,3 +1,13 @@
+.container{
+    background-color: white;
+    padding:0 10px 0 10px;
+}
+
+.site-content {
+    background-color: #e6e6e6;
+    margin: 0 auto;
+}
+
 nav .brand-logo {
     padding-left: 5px;
 }
@@ -6,17 +16,57 @@ nav .brand-logo {
     text-align: center;
 }
 
+.main-categories {
+    text-align: center
+}
+
+.height-allignment {
+    max-width: 360px;
+}
+
+.categories {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
 .categories img {
-    height: 88px;
-    width: 88px;
+    height: 120px;
+    width: 120px;
     box-shadow: 3px 2px 5px 0 #c2c2c2;
     border-radius: 50%;
 }
 
-.categories li {
-    display: inline;
+.img-text {
+    display: block;
 }
 
-.categories ul {
+.content-style {
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 12.5px 0;
     text-align: center;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.content-style img {
+    height: 298px;
+    width: 298px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.section-bg{
+    background-color: white;
+}
+
+
+@media (min-width:600px) {
+    
 }
