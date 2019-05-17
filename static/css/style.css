@@ -49,6 +49,26 @@ nav .button-collapse i {
     color: black;
 }
 
+/*------------------------ Select category ----------------------------------*/
+
+h1 {
+    font-family: 'Satisfy', cursive;
+}
+
+h5 {
+    font-family: 'Courgette', cursive;
+}
+
+.categories span {
+    font-family: 'Courgette', cursive;
+    color: black;
+}
+
+.card .card-image img {
+    max-height: 255px;
+    min-height: 255px;
+}
+
 .site-content {
     background-color: ;
     margin: 0 auto;

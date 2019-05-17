@@ -2,28 +2,29 @@
 
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <div class="intro-headings">
-        <h1 class="header center">Welcome to Recipe World</h1>
-        <div class="row center">
-          <h5 class="header col s12">Your one stop shop for all things food</h5>
-        </div>
-        <div class="row center">
-          <a class="hvr-grow" href="""><i class="small material-icons">info_outline</i></a>
-        </div>
-        </div>
-        <br><br>
+        <div class="container">
+            <br><br>
+            <div class="intro-headings">
+                <h1 class="header center">Welcome to Recipe World</h1>
+                <div class="row center">
+                    <h5 class="header col s12">Your one stop shop for all things food</h5>
+                </div>
+                <div class="row center">
+                    <a class="hvr-grow" href=""><i class="small material-icons">info_outline</i></a>
+                </div>
+            </div>
+            <br><br>
 
-      </div>
+        </div>
     </div>
     <div class="parallax"><img src="{{url_for('static', filename='images/main-banner.jpg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
-  </div>
+</div>
 
 <section class="container">
     <div class="row title-header">
-        <h5> Select a category</h5>
+        <h5>Select a category</h5>
     </div>
+    <br>
     <div class="row main-categories">
         <div class="categories hvr-grow">
             <a href="">
@@ -56,21 +57,34 @@
     </a>
         </div>
     </div>
+
+</section>
+<section class="container-fluid">
     <div class="row title-header">
         <h5> All recipes </h5>
     </div>
 
+
+
     <div class="row">
         {% for item in recipes %}
-        <div class="col s12 m6 l4 height-alignment">
-            <div class="content-style">
-                <a href="">
-                    <img src="{{item.image}}"></img>
-                    <p>{{ item.recipe_name }}</p>
-                    <p> rating?? </p>
-                    <p> {{ item.description }}</p>
-                    <p> {{ item.author_name }} </p>
-                </a>
+        <div class="col s12 m4 l3">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{item.image}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ item.recipe_name }}<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.recipe_name }}</span>
+                    <p><i class="small material-icons left">insert_chart</i> Category: {{item.category_name}}</p>
+                    <p><i class="small material-icons left">dehaze</i> Type: {{item.recipe_type}}</p>
+                    <p><i class="small material-icons left">av_timer</i> Prep time: {{item.prep_time}}</p>
+                    <p><i class="small material-icons left">av_timer</i> Cook time: {{item.cook_time}}</p>
+                    <p><i class="small material-icons left">star</i> Rating: {{item.rating}}</p>
+                </div>
             </div>
         </div>
         {% endfor %}
