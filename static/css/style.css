@@ -1,10 +1,56 @@
-.container{
+/*------------------------ Navbar ----------------------------------*/
+
+nav {
     background-color: white;
-    padding:0 10px 0 10px;
+}
+
+nav .brand-logo {
+    font-family: 'Satisfy', cursive;
+    font-size: 3.1rem;
+    color: black;
+}
+
+nav li {
+    font-family: 'Courgette', cursive;
+}
+
+nav ul a {
+    font-size: 1.5rem;
+    color: black;
+}
+
+nav .button-collapse i {
+    color: black;
+}
+
+/*------------------------ main banner ----------------------------------*/
+
+.btn,
+.btn-large {
+    background-color: black;
+    color: white;
+}
+
+.parallax-container {
+    max-height: 380px;
+}
+
+.intro-headings {
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 12.5px 0;
+    text-align: center;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.material-icons {
+    color: black;
 }
 
 .site-content {
-    background-color: #e6e6e6;
+    background-color: ;
     margin: 0 auto;
 }
 
@@ -62,11 +108,9 @@ nav .brand-logo {
     border-radius: 10px;
 }
 
-.section-bg{
+.section-bg {
     background-color: white;
 }
 
 
-@media (min-width:600px) {
-    
-}
+@media (min-width:600px) {}

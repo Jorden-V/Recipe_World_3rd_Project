@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Satisfy&display=swap" rel="stylesheet">
 </head>
 
 <body class="site-content">
@@ -15,12 +16,10 @@
                 <a href="" class="brand-logo">Recipe World</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Add recipe</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href="">Add recipe</li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="">Add recipe</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,6 +43,7 @@
             $('.collapsible').collapsible();
             $('select').material_select();
             $(".button-collapse").sideNav();
+            $('.parallax').parallax();
         });
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
