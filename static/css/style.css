@@ -1,3 +1,7 @@
+a {
+    color: black;
+}
+
 /*------------------------ Navbar ----------------------------------*/
 
 nav {
@@ -132,5 +136,19 @@ nav .brand-logo {
     background-color: white;
 }
 
+/*------------------------ Footer ----------------------------------*/
 
-@media (min-width:600px) {}
+.page-footer {
+    padding: 0;
+    background-color: rgba(51, 51, 51, 0.08);
+}
+
+.list-inline li {
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.contact-us {
+    padding-top: 17px;
+}

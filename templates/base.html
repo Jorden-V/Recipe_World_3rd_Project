@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Courgette|Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
 </head>
 
 <body class="site-content">
@@ -16,7 +17,7 @@
                 <a href="" class="brand-logo">Recipe World</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Add recipe</li>
+                    <li><a href="{{ url_for('add_recipe') }}">Add recipe</li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
@@ -29,12 +30,22 @@
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
-                Contact Us
-                <a class="grey-text text-lighten-4 right" href="#!">Social links</a>
+                <div class="row">
+                    <div class="contact-us col s4">
+                        <a href="" class="waves-effect waves-light btn">Contact Us</a>
+                    </div>
+                    <div class="col s8">
+                        <ul class="list-inline right">
+                            <li><a target="_blank" href="https://en-gb.facebook.com/TheMonkees/"><i class="fa fa-facebook hvr-grow" aria-hidden="true"></i></a></li>
+                            <li><a target="_blank" href="https://twitter.com/TheMonkees?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter hvr-grow" aria-hidden="true"></i></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/themonkees/?hl=en"><i class="fa fa-instagram hvr-grow" aria-hidden="true"></i></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/user/themonkees"><i class="fa fa-youtube hvr-grow" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

@@ -9,9 +9,6 @@
                 <div class="row center">
                     <h5 class="header col s12">Your one stop shop for all things food</h5>
                 </div>
-                <div class="row center">
-                    <a class="hvr-grow" href=""><i class="small material-icons">info_outline</i></a>
-                </div>
             </div>
             <br><br>
 
@@ -23,6 +20,7 @@
 <section class="container">
     <div class="row title-header">
         <h5>Select a category</h5>
+        <hr>
     </div>
     <br>
     <div class="row main-categories">
@@ -59,12 +57,13 @@
     </div>
 
 </section>
-<section class="container-fluid">
+<section class="container">
     <div class="row title-header">
         <h5> All recipes </h5>
+        <hr>
     </div>
-
-
+    </section>
+<section class="container-fluid">
 
     <div class="row">
         {% for item in recipes %}
@@ -75,15 +74,20 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ item.recipe_name }}<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is a link</a></p>
+                    <p><a href="" class="waves-effect waves-light btn">View full recipe</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.recipe_name }}</span>
-                    <p><i class="small material-icons left">insert_chart</i> Category: {{item.category_name}}</p>
-                    <p><i class="small material-icons left">dehaze</i> Type: {{item.recipe_type}}</p>
-                    <p><i class="small material-icons left">av_timer</i> Prep time: {{item.prep_time}}</p>
-                    <p><i class="small material-icons left">av_timer</i> Cook time: {{item.cook_time}}</p>
-                    <p><i class="small material-icons left">star</i> Rating: {{item.rating}}</p>
+                    <p><i class="small material-icons left">insert_chart</i><strong>Category</strong>: {{item.category_name}}</p>
+                    <hr>
+                    <p><i class="small material-icons left">dehaze</i><strong>Type</strong>: {{item.recipe_type}}</p>
+                    <hr>
+                    <p><i class="small material-icons left">av_timer</i><strong>Prep time</strong>: {{item.prep_time}}</p>
+                    <hr>
+                    <p><i class="small material-icons left">av_timer</i> <strong>Cook time</strong>: {{item.cook_time}}</p>
+                    <hr>
+                    <p><i class="small material-icons left">star</i><strong>Rating</strong>: {{item.rating}}</p>
+                    <hr>
                 </div>
             </div>
         </div>
