@@ -14,14 +14,21 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="" class="brand-logo">Recipe World</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('add_recipe') }}">Add recipe</li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
-                </ul>
+                <div class="row">
+                    <div class="col s8">
+                        <a href="" class="brand-logo">Recipe World</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                    <div class="col s4">
+                        <ul id="nav-mobile" class="nav-links hide-on-med-and-down">
+                            <li><a href="{{ url_for('index') }}">Home</li>
+                            <li><a href="{{ url_for('add_recipe') }}">Add recipe</li>
+                        </ul>
+                    </div>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -55,6 +62,7 @@
             $('select').material_select();
             $(".button-collapse").sideNav();
             $('.parallax').parallax();
+            $('select').material_select();
         });
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month

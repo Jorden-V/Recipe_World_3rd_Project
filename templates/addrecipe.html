@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block content %}
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <div class="intro-headings">
+                <h1 class="header center">Add a new recipe</h1>
+                <div class="row center">
+                    <h5 class="header col s12">Simply complete the form below and submit to add a new recipe</h5>
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="{{url_for('static', filename='images/main-banner-2.jpg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
+</div>
+
+<section class="container">
+    <div class="row title-header">
+        <h5> Recipe info </h5>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <select>
+              <option value="" disabled selected>Choose a category</option>
+              {% for item in categories %}
+              <option value="1">{{ item.category_name }}</option>
+              {% endfor %}
+            </select>
+            <label>Category</label> 
+        </div>
+        <div class="input-field col s12 m6">
+            <select>
+              <option value="" disabled selected>Choose a cuisine</option>
+              {% for item in cuisine %}
+              <option value="1">{{ item.cuisine_type }}</option>
+              {% endfor %}
+            </select>
+            <label>Cuisine</label> 
+        </div>
+        <div class="input-field col s12 m6">
+            <select>
+              <option value="" disabled selected>How many does it serve?</option>
+              {% for item in serving_size %}
+              <option value="1">{{ item.serving_size }}</option>
+              {% endfor %}
+            </select>
+            <label>Serving size</label> 
+        </div>
+        <div class="input-field col s12 m6">
+            <select>
+              <option value="" disabled selected>Select difficulty</option>
+              {% for item in difficulty %}
+              <option value="1">{{ item.difficulty_level }}</option>
+              {% endfor %}
+            </select>
+            <label> Difficulty </label> 
+        </div>
+
+
+    </div>
+
+    <div class="row title-header">
+        <h5> Recipe ingredients </h5>
+        <hr>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -17,8 +17,7 @@ def index():
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html',
-    recipes=mongo.db.recipes.find())
+    return render_template('addrecipe.html', recipes=mongo.db.recipes.find(), categories=mongo.db.categories.find(), cuisine=mongo.db.cuisine.find(), serving_size=mongo.db.serving_size.find(), difficulty=mongo.db.difficulty.find() )
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
