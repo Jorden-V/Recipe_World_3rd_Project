@@ -17,12 +17,57 @@
 </div>
 
 <section class="container">
+
     <div class="row title-header">
-        <h5> Recipe info </h5>
-        <hr>
+        <h5> Category or Cuisine missing from the drop down below?</h5>
+        <p> Just add the category or cuisine name below</p>
+    </div>
+    <!--   New Category   -->
+    <div class="row intro-headings">
+        <div class="col s12 m6">
+            <form action="{{ url_for('add_new_category') }}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">poll</i>
+                        <input id="category_name" name="category_name" type="text" class="validate">
+                        <span class="helper-text" data-error="Try again" data-success="Done"></span>
+                        <label for="category">Type New Category Here</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </form>
+        </div>
+
+
+
+        <!--   New Cuisine   -->
+
+        <div class="col s12 m6">
+            <form action="{{ url_for('add_new_cuisine') }}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">poll</i>
+                        <input id="cuisine_type" name="cuisine_type" type="text" class="validate">
+                        <span class="helper-text" data-error="Try again" data-success="Done"></span>
+                        <label for="category">Type New Cuisine Here</label>
+                        
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </form>
+        </div>
+    </div>
     </div>
 
-    <div class="row">
+    <div class="row title-header">
+        <h5> Recipe info </h5>
+    </div>
+
+    <div class="row intro-headings">
         <div class="input-field col s12 m6">
             <select>
               <option value="" disabled selected>Choose a category</option>
@@ -30,7 +75,7 @@
               <option value="1">{{ item.category_name }}</option>
               {% endfor %}
             </select>
-            <label>Category</label> 
+            <label>Category</label>
         </div>
         <div class="input-field col s12 m6">
             <select>
@@ -39,7 +84,7 @@
               <option value="1">{{ item.cuisine_type }}</option>
               {% endfor %}
             </select>
-            <label>Cuisine</label> 
+            <label>Cuisine</label>
         </div>
         <div class="input-field col s12 m6">
             <select>
@@ -48,7 +93,7 @@
               <option value="1">{{ item.serving_size }}</option>
               {% endfor %}
             </select>
-            <label>Serving size</label> 
+            <label>Serving size</label>
         </div>
         <div class="input-field col s12 m6">
             <select>
@@ -57,7 +102,7 @@
               <option value="1">{{ item.difficulty_level }}</option>
               {% endfor %}
             </select>
-            <label> Difficulty </label> 
+            <label> Difficulty </label>
         </div>
 
 
@@ -65,7 +110,101 @@
 
     <div class="row title-header">
         <h5> Recipe ingredients </h5>
-        <hr>
+    </div>
+
+    <div class="row">
+        <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
+            <div class="row intro-headings">
+                <div class="input-field col s6">
+                    <input id="ingredients_1" name="ingredients_1" type="text" class="validate">
+                    <label for="name">Ingredient 1</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_2" name="ingredients_2" type="text" class="validate">
+                    <label for="name">Ingredient 2</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_3" name="ingredients_3" type="text" class="validate">
+                    <label for="name">Ingredient 3</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_4" name="ingredients_4" type="text" class="validate">
+                    <label for="name">Ingredient 4</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_5" name="ingredients_5" type="text" class="validate">
+                    <label for="name">Ingredient 5</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_6" name="ingredients_6" type="text" class="validate">
+                    <label for="name">Ingredient 6</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_7" name="ingredients_7" type="text" class="validate">
+                    <label for="name">Ingredient 7</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_8" name="ingredients_8" type="text" class="validate">
+                    <label for="name">Ingredient 8</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_9" name="ingredients_9" type="text" class="validate">
+                    <label for="name">Ingredient 9</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ingredients_10" name="ingredients_10" type="text" class="validate">
+                    <label for="name">Ingredient 10</label>
+                </div>
+            </div>
+
+            <div class="row title-header">
+                <h5> Directions </h5>
+            </div>
+
+            <div class="row intro-headings">
+                <div class="input-field col s12">
+                    <input id="method_1" name="method_1" type="text" class="validate">
+                    <label for="name">Step 1</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_2" name="method_2" type="text" class="validate">
+                    <label for="name">Step 2</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_3" name="method_3" type="text" class="validate">
+                    <label for="name">Step 3</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_4" name="method_4" type="text" class="validate">
+                    <label for="name">Step 4</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_5" name="method_5" type="text" class="validate">
+                    <label for="name">Step 5</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_6" name="method_6" type="text" class="validate">
+                    <label for="name">Step 6</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_7" name="method_7" type="text" class="validate">
+                    <label for="name">Step 7</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_8" name="method_8" type="text" class="validate">
+                    <label for="name">Step 8</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_9" name="method_9" type="text" class="validate">
+                    <label for="name">Step 9</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="method_10" name="method_10" type="text" class="validate">
+                    <label for="name">Step 10</label>
+                </div>
+            </div>
+
+        </form>
     </div>
 
 </section>
