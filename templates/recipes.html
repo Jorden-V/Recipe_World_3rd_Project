@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-        {%  for recipe in recipes%}
-            {{ recipe.recipe_name }}
-            {{ recipe.author_name }}
-            {{ recipe.description }}
-        {% endfor %}
+<div>
+ {{recipes.recipe_name }}
+ </div>
 {% endblock %}

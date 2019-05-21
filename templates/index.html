@@ -70,11 +70,11 @@
         <div class="col s12 m4 l3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{item.image}}">
+                    <img class="activator" src="{{item.image}}" alt="{{ item.recipe_name }}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ item.recipe_name|truncate(length=15, killwords=False, end='...') }}<i class="material-icons right">more_vert</i></span>
-                    <p><a href="" class="waves-effect waves-light btn">View full recipe</a></p>
+                    <span class="card-title activator grey-text text-darken-4">{{ item.recipe_name|truncate(length=15, killwords=True, end='...') }}<i class="material-icons right">more_vert</i></span>
+                    <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.recipe_name }}</span>

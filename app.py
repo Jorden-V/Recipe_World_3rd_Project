@@ -37,6 +37,12 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
+@app.route('/recipes/<item_id>')
+def recipes(item_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(item_id)})
+    return render_template('recipes.html', recipes = the_recipe)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
