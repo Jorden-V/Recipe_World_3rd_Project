@@ -27,7 +27,7 @@ nav .button-collapse i {
     color: black;
 }
 
-.nav-links{
+.nav-links {
     margin-left: 130px;
 }
 
@@ -140,6 +140,27 @@ nav .brand-logo {
     background-color: white;
 }
 
+.recipe-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.recipe-info {
+    margin-top: 32px;
+
+}
+
+
+ol li {
+    border: 1px solid transparent;
+    clear: both;
+    margin: .5rem 0;
+}
+
+.method-text {
+    text-align: left;
+}
+
 /*------------------------ Footer ----------------------------------*/
 
 .page-footer {
@@ -155,4 +176,11 @@ nav .brand-logo {
 
 .contact-us {
     padding-top: 17px;
+}
+
+@media only screen and (min-width: 600px) {
+    .card-allignment {
+        display: flex;
+    }
+
 }
