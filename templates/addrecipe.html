@@ -73,52 +73,52 @@
             <div class="row intro-headings">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required="required">
                     <label for="icon_prefix">Recipe name</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <input id="description" name="description" type="text" class="validate">
+                    <input id="description" name="description" type="text" class="validate" required="required">
                     <label for="icon_prefix">Description</label>
                 </div>
             </div>
             
             <div class="row intro-headings">
                 <div class="input-field col s12 m6">
-                    <select id="category_name" name="category_name">
+                    <select id="category_name" name="category_name" required>
               <option value="" disabled selected>Choose a category</option>
               {% for item in categories %}
-              <option value="{{ item.category_name }}">{{ item.category_name }}</option>
+              <option value="{{ item.category_name }}">{{ item.category_name }} </option>
               {% endfor %}
             </select>
-                    <label>Category</label>
+                    <label>Category <span class="red-text">* required</span> </label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <select id="cuisine_type" name="cuisine_type">
+                    <select id="cuisine_type" name="cuisine_type" required>
               <option value="" disabled selected>Choose a cuisine</option>
               {% for item in cuisine %}
               <option value="{{ item.cuisine_type }}">{{ item.cuisine_type }}</option>
               {% endfor %}
             </select>
-                    <label>Cuisine</label>
+                    <label>Cuisine <span class="red-text">* required</span></label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <select id="serving_size" name="serving_size">
+                    <select id="serving_size" name="serving_size" required>
               <option value="" disabled selected>How many does it serve?</option>
               {% for item in serving_size %}
-              <option value="{{ item.serving_size }}">{{ item.serving_size }}</option>
+              <option value="{{ item.serving_size }}">{{ item.serving_size }} </option>
               {% endfor %}
             </select>
-                    <label>Serving size</label>
+                    <label>Serving size <span class="red-text">* required</span></label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <select id="difficulty" name="difficulty">
+                    <select id="difficulty" name="difficulty" required>
                         <option value="" disabled selected>Select difficulty</option>
                          {% for item in difficulty %}
                          <option value="{{ item.difficulty_level }}">{{ item.difficulty_level }}</option>
               {% endfor %}
             </select>
-                    <label> Difficulty </label>
+                    <label> Difficulty <span class="red-text">* required</span> </label>
                 </div>
             </div>
 
@@ -171,7 +171,7 @@
             <div class="row">
                 <div class="row intro-headings">
                     <div class="input-field col s6">
-                        <input id="ingredients_1" name="ingredients_1" type="text" class="validate">
+                        <input id="ingredients_1" name="ingredients_1" type="text" class="validate" required="required">
                         <label for="name">Ingredient 1</label>
                     </div>
                     <div class="input-field col s6">
@@ -218,8 +218,8 @@
 
                 <div class="row intro-headings">
                     <div class="input-field col s12">
-                        <input id="method_1" name="method_1" type="text" class="validate">
-                        <label for="name">Step 1</label>
+                        <input id="method_1" name="method_1" type="text" class="validate" required="required">
+                        <label for="name">Step 1 </label>
                     </div>
                     <div class="input-field col s12">
                         <input id="method_2" name="method_2" type="text" class="validate">
@@ -262,12 +262,12 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">today</i>
-                        <input id="data_added" name="date_added" type="text" class="datepicker">
-                        <label for="date_added">Select date</label>
+                        <input id="data_added" name="date_added" type="text" class="datepicker" required="required">
+                        <label for="date_added">Select date <span class="red-text">* required</span></label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="author_name" name="author_name" type="text" class="validate">
+                        <input id="author_name" name="author_name" type="text" class="validate" required="required">
                         <label for="name">Added By</label>
                     </div>
                 </div>

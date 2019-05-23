@@ -94,6 +94,9 @@ def update_recipe(recipes_id):
 def delete_recipe(recipes_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
     return redirect(url_for('index'))
+    
+    # url for delete recipe
+# {{ url_for('delete_recipe', recipes_id=recipes._id) }}
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
