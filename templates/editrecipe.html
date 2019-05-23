@@ -65,27 +65,31 @@
     </div>
 
     <div>
-        <form action="{{ url_for('insert_recipe') }}" method="POST">
-            
+        <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST">
+
             <div class="row intro-headings">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipes.recipe_name }}">
                     <label for="icon_prefix">Recipe name</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <input id="description" name="description" type="text" class="validate">
+                    <input id="description" name="description" type="text" class="validate" value="{{ recipes.description }}">
                     <label for="icon_prefix">Description</label>
                 </div>
             </div>
-            
+
             <div class="row intro-headings">
                 <div class="input-field col s12 m6">
                     <select id="category_name" name="category_name">
               <option value="" disabled selected>Choose a category</option>
               {% for item in categories %}
+              {% if item.category_name == recipes.category_name %}
+              <option value="{{ item.category_name }}" selected>{{ item.category_name }}</option>
+              {% else %}
               <option value="{{ item.category_name }}">{{ item.category_name }}</option>
+              {% endif %}
               {% endfor %}
             </select>
                     <label>Category</label>
@@ -94,7 +98,11 @@
                     <select id="cuisine_type" name="cuisine_type">
               <option value="" disabled selected>Choose a cuisine</option>
               {% for item in cuisine %}
+              {% if item.cuisine_type == recipes.cuisine_type %}
+              <option value="{{ item.cuisine_type }}" selected>{{ item.cuisine_type }}</option>
+              {% else %}
               <option value="{{ item.cuisine_type }}">{{ item.cuisine_type }}</option>
+              {% endif %}
               {% endfor %}
             </select>
                     <label>Cuisine</label>
@@ -103,19 +111,28 @@
                     <select id="serving_size" name="serving_size">
               <option value="" disabled selected>How many does it serve?</option>
               {% for item in serving_size %}
+              {% if item.serving_size == recipes.serving_size %}
+              <option value="{{ item.serving_size }}" selected>{{ item.serving_size }}</option>
+              {% else %}
               <option value="{{ item.serving_size }}">{{ item.serving_size }}</option>
+              {% endif %}
               {% endfor %}
             </select>
                     <label>Serving size</label>
                 </div>
+
                 <div class="input-field col s12 m6">
                     <select id="difficulty" name="difficulty">
-                        <option value="" disabled selected>Select difficulty</option>
-                         {% for item in difficulty %}
-                         <option value="{{ item.difficulty_level }}">{{ item.difficulty_level }}</option>
+              <option value="" disabled selected>Select difficulty</option>
+              {% for item in difficulty %}
+              {% if item.difficulty == recipes.difficulty_level %}
+              <option value="{{ item.difficulty_level }}" selected>{{ item.difficulty_level }}</option>
+              {% else %}
+              <option value="{{ item.difficulty_level }}">{{ item.difficulty_level }}</option>
+              {% endif %}
               {% endfor %}
             </select>
-                    <label> Difficulty </label>
+                    <label>Serving size</label>
                 </div>
             </div>
 
@@ -123,14 +140,14 @@
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix">timer</i><br><br>
                     <p class="range-field">
-                        <input type="range" id="prep_time" name="prep_time" min="0" max="120" />
+                        <input type="range" id="prep_time" name="prep_time" value="{{ recipes.prep_time }}" min="0" max="120" />
                     </p>
                     <label for="prep_time">Prepearation Time (mins)</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix">timer</i><br><br>
                     <p class="range-field">
-                        <input type="range" id="cook_time" name="cook_time" min="0" max="600" />
+                        <input type="range" id="cook_time" name="cook_time" value="{{ recipes.cook_time }}" min="0" max="600" />
                     </p>
                     <label for="cook_time">Cooking Time (mins)</label>
                 </div>
@@ -156,7 +173,7 @@
             <div class="row intro-headings">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <input id="image" name="image" type="text" class="validate">
+                    <input id="image" name="image" type="text" class="validate" value="{{ recipes.image }}">
                     <label for="icon_prefix">Image URL</label>
                 </div>
             </div>
@@ -168,43 +185,43 @@
             <div class="row">
                 <div class="row intro-headings">
                     <div class="input-field col s6">
-                        <input id="ingredients_1" name="ingredients_1" type="text" class="validate">
+                        <input id="ingredients_1" name="ingredients_1" type="text" class="validate" value="{{ recipes.ingredients_1 }}">
                         <label for="name">Ingredient 1</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_2" name="ingredients_2" type="text" class="validate">
+                        <input id="ingredients_2" name="ingredients_2" type="text" class="validate" value="{{ recipes.ingredients_2 }}">
                         <label for="name">Ingredient 2</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_3" name="ingredients_3" type="text" class="validate">
+                        <input id="ingredients_3" name="ingredients_3" type="text" class="validate" value="{{ recipes.ingredients_3 }}">
                         <label for="name">Ingredient 3</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_4" name="ingredients_4" type="text" class="validate">
+                        <input id="ingredients_4" name="ingredients_4" type="text" class="validate" value="{{ recipes.ingredients_4 }}">
                         <label for="name">Ingredient 4</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_5" name="ingredients_5" type="text" class="validate">
+                        <input id="ingredients_5" name="ingredients_5" type="text" class="validate" value="{{ recipes.ingredients_5 }}">
                         <label for="name">Ingredient 5</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_6" name="ingredients_6" type="text" class="validate">
+                        <input id="ingredients_6" name="ingredients_6" type="text" class="validate" value="{{ recipes.ingredients_6 }}">
                         <label for="name">Ingredient 6</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_7" name="ingredients_7" type="text" class="validate">
+                        <input id="ingredients_7" name="ingredients_7" type="text" class="validate" value="{{ recipes.ingredients_7 }}">
                         <label for="name">Ingredient 7</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_8" name="ingredients_8" type="text" class="validate">
+                        <input id="ingredients_8" name="ingredients_8" type="text" class="validate" value="{{ recipes.ingredients_8 }}">
                         <label for="name">Ingredient 8</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_9" name="ingredients_9" type="text" class="validate">
+                        <input id="ingredients_9" name="ingredients_9" type="text" class="validate" value="{{ recipes.ingredients_9 }}">
                         <label for="name">Ingredient 9</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_10" name="ingredients_10" type="text" class="validate">
+                        <input id="ingredients_10" name="ingredients_10" type="text" class="validate" value="{{ recipes.ingredients_10 }}">
                         <label for="name">Ingredient 10</label>
                     </div>
                 </div>
@@ -215,43 +232,43 @@
 
                 <div class="row intro-headings">
                     <div class="input-field col s12">
-                        <input id="method_1" name="method_1" type="text" class="validate">
+                        <input id="method_1" name="method_1" type="text" class="validate" value="{{ recipes.method_1 }}">
                         <label for="name">Step 1</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_2" name="method_2" type="text" class="validate">
+                        <input id="method_2" name="method_2" type="text" class="validate" value="{{ recipes.method_2 }}">
                         <label for="name">Step 2</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_3" name="method_3" type="text" class="validate">
+                        <input id="method_3" name="method_3" type="text" class="validate" value="{{ recipes.method_3 }}">
                         <label for="name">Step 3</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_4" name="method_4" type="text" class="validate">
+                        <input id="method_4" name="method_4" type="text" class="validate" value="{{ recipes.method_4 }}">
                         <label for="name">Step 4</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_5" name="method_5" type="text" class="validate">
+                        <input id="method_5" name="method_5" type="text" class="validate" value="{{ recipes.method_5 }}">
                         <label for="name">Step 5</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_6" name="method_6" type="text" class="validate">
+                        <input id="method_6" name="method_6" type="text" class="validate" value="{{ recipes.method_6 }}">
                         <label for="name">Step 6</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_7" name="method_7" type="text" class="validate">
+                        <input id="method_7" name="method_7" type="text" class="validate" value="{{ recipes.method_7 }}">
                         <label for="name">Step 7</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_8" name="method_8" type="text" class="validate">
+                        <input id="method_8" name="method_8" type="text" class="validate" value="{{ recipes.method_8 }}">
                         <label for="name">Step 8</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_9" name="method_9" type="text" class="validate">
+                        <input id="method_9" name="method_9" type="text" class="validate" value="{{ recipes.method_9 }}">
                         <label for="name">Step 9</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="method_10" name="method_10" type="text" class="validate">
+                        <input id="method_10" name="method_10" type="text" class="validate" value="{{ recipes.method_10 }}">
                         <label for="name">Step 10</label>
                     </div>
                 </div>
@@ -259,12 +276,12 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">today</i>
-                        <input id="data_added" name="date_added" type="text" class="datepicker">
-                        <label for="date_added">Date Added (today)</label>
+                        <input id="data_added" name="date_added" type="text" class="datepicker" value="{{ recipes.date_added }}">
+                        <label for="date_added">Select date</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="author_name" name="author_name" type="text" class="validate">
+                        <input id="author_name" name="author_name" type="text" class="validate" value="{{ recipes.author_name }}">
                         <label for="name">Added By</label>
                     </div>
                 </div>
