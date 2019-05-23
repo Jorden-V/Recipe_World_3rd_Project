@@ -161,6 +161,20 @@ ol li {
     text-align: left;
 }
 
+.current-img-container {
+    text-align: center
+}
+
+.current-img-container img {
+    height: 200px;
+    width: 300px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 12.5px 0;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
 /*------------------------ Footer ----------------------------------*/
 
 .page-footer {
