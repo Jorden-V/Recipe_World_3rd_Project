@@ -1,0 +1,283 @@
+{% extends 'base.html' %} {% block content %}
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <div class="intro-headings">
+                <h1 class="header center">Edit this recipe</h1>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="{{url_for('static', filename='images/main-banner-2.jpg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
+</div>
+
+<section class="container">
+
+    <div class="row title-header">
+        <h5> Category or Cuisine missing from the drop down below?</h5>
+        <p> Just add the category or cuisine name below</p>
+    </div>
+    <!--   New Category   -->
+    <div class="row intro-headings">
+        <div class="col s12 m6">
+            <form action="{{ url_for('add_new_category') }}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">poll</i>
+                        <input id="category_name" name="category_name" type="text" class="validate">
+                        <span class="helper-text" data-error="Try again" data-success="Done"></span>
+                        <label for="category">Type New Category Here</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </form>
+        </div>
+
+
+
+        <!--   New Cuisine   -->
+
+        <div class="col s12 m6">
+            <form action="{{ url_for('add_new_cuisine') }}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">poll</i>
+                        <input id="cuisine_type" name="cuisine_type" type="text" class="validate">
+                        <span class="helper-text" data-error="Try again" data-success="Done"></span>
+                        <label for="category">Type New Cuisine Here</label>
+
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <div class="row title-header">
+        <h5> Recipe info </h5>
+    </div>
+
+    <div>
+        <form action="{{ url_for('insert_recipe') }}" method="POST">
+            
+            <div class="row intro-headings">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">image</i>
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <label for="icon_prefix">Recipe name</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">image</i>
+                    <input id="description" name="description" type="text" class="validate">
+                    <label for="icon_prefix">Description</label>
+                </div>
+            </div>
+            
+            <div class="row intro-headings">
+                <div class="input-field col s12 m6">
+                    <select id="category_name" name="category_name">
+              <option value="" disabled selected>Choose a category</option>
+              {% for item in categories %}
+              <option value="{{ item.category_name }}">{{ item.category_name }}</option>
+              {% endfor %}
+            </select>
+                    <label>Category</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select id="cuisine_type" name="cuisine_type">
+              <option value="" disabled selected>Choose a cuisine</option>
+              {% for item in cuisine %}
+              <option value="{{ item.cuisine_type }}">{{ item.cuisine_type }}</option>
+              {% endfor %}
+            </select>
+                    <label>Cuisine</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select id="serving_size" name="serving_size">
+              <option value="" disabled selected>How many does it serve?</option>
+              {% for item in serving_size %}
+              <option value="{{ item.serving_size }}">{{ item.serving_size }}</option>
+              {% endfor %}
+            </select>
+                    <label>Serving size</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select id="difficulty" name="difficulty">
+                        <option value="" disabled selected>Select difficulty</option>
+                         {% for item in difficulty %}
+                         <option value="{{ item.difficulty_level }}">{{ item.difficulty_level }}</option>
+              {% endfor %}
+            </select>
+                    <label> Difficulty </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">timer</i><br><br>
+                    <p class="range-field">
+                        <input type="range" id="prep_time" name="prep_time" min="0" max="120" />
+                    </p>
+                    <label for="prep_time">Prepearation Time (mins)</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">timer</i><br><br>
+                    <p class="range-field">
+                        <input type="range" id="cook_time" name="cook_time" min="0" max="600" />
+                    </p>
+                    <label for="cook_time">Cooking Time (mins)</label>
+                </div>
+            </div>
+
+            <div class="row title-header">
+                <h5> Add an image <a class="modal-trigger" href="#modal1"><i class="material-icons prefix hvr-grow">info_outline</i></a> </h5>
+            </div>
+
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>How to add an image?</h4>
+                    <p>1) Find an image online that matches your recipe. </p>
+                    <p>2) Right click the image.</p>
+                    <p>3) Select "Copy Image Address".</p>
+                    <p>4) Past image address into the field below.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
+                </div>
+            </div>
+
+            <div class="row intro-headings">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">image</i>
+                    <input id="image" name="image" type="text" class="validate">
+                    <label for="icon_prefix">Image URL</label>
+                </div>
+            </div>
+
+            <div class="row title-header">
+                <h5> Recipe ingredients </h5>
+            </div>
+
+            <div class="row">
+                <div class="row intro-headings">
+                    <div class="input-field col s6">
+                        <input id="ingredients_1" name="ingredients_1" type="text" class="validate">
+                        <label for="name">Ingredient 1</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_2" name="ingredients_2" type="text" class="validate">
+                        <label for="name">Ingredient 2</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_3" name="ingredients_3" type="text" class="validate">
+                        <label for="name">Ingredient 3</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_4" name="ingredients_4" type="text" class="validate">
+                        <label for="name">Ingredient 4</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_5" name="ingredients_5" type="text" class="validate">
+                        <label for="name">Ingredient 5</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_6" name="ingredients_6" type="text" class="validate">
+                        <label for="name">Ingredient 6</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_7" name="ingredients_7" type="text" class="validate">
+                        <label for="name">Ingredient 7</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_8" name="ingredients_8" type="text" class="validate">
+                        <label for="name">Ingredient 8</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_9" name="ingredients_9" type="text" class="validate">
+                        <label for="name">Ingredient 9</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="ingredients_10" name="ingredients_10" type="text" class="validate">
+                        <label for="name">Ingredient 10</label>
+                    </div>
+                </div>
+
+                <div class="row title-header">
+                    <h5> Directions </h5>
+                </div>
+
+                <div class="row intro-headings">
+                    <div class="input-field col s12">
+                        <input id="method_1" name="method_1" type="text" class="validate">
+                        <label for="name">Step 1</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_2" name="method_2" type="text" class="validate">
+                        <label for="name">Step 2</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_3" name="method_3" type="text" class="validate">
+                        <label for="name">Step 3</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_4" name="method_4" type="text" class="validate">
+                        <label for="name">Step 4</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_5" name="method_5" type="text" class="validate">
+                        <label for="name">Step 5</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_6" name="method_6" type="text" class="validate">
+                        <label for="name">Step 6</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_7" name="method_7" type="text" class="validate">
+                        <label for="name">Step 7</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_8" name="method_8" type="text" class="validate">
+                        <label for="name">Step 8</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_9" name="method_9" type="text" class="validate">
+                        <label for="name">Step 9</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="method_10" name="method_10" type="text" class="validate">
+                        <label for="name">Step 10</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">today</i>
+                        <input id="data_added" name="date_added" type="text" class="datepicker">
+                        <label for="date_added">Date Added (today)</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="author_name" name="author_name" type="text" class="validate">
+                        <label for="name">Added By</label>
+                    </div>
+                </div>
+
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit recipe!
+              <i class="material-icons right">playlist_add</i>
+            </button>
+
+
+            </div>
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -41,7 +41,13 @@ def insert_recipe():
 def recipes(item_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(item_id)})
     return render_template('recipes.html', recipes = the_recipe)
+    
 
+@app.route('/edit_recipe/<recipes_id>')
+def edit_recipe(recipes_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+    recipe_detail = mongo.db.recipes.find()
+    return render_template('editrecipe.html', recipes=the_recipe, detail=recipe_detail)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
