@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'recipe_site'
@@ -10,8 +11,9 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template("index.html", recipes=mongo.db.recipes.find())
     
@@ -94,9 +96,23 @@ def update_recipe(recipes_id):
 def delete_recipe(recipes_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
     return redirect(url_for('index'))
-    
-    # url for delete recipe
-# {{ url_for('delete_recipe', recipes_id=recipes._id) }}
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    q = request.args.get("search", "")
+    print (q)
+    query = ({"$text": {"$search": q}})
+    print(query)
+    results = mongo.db.recipes.find(query)
+    print(results)
+    print(results.count())
+    cur = results
+    x   = []
+    for i in cur:
+        x.append(i)
+    print(x)
+    return render_template('searchresults.html', recipes=x)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

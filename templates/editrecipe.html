@@ -4,7 +4,7 @@
         <div class="container">
             <br><br>
             <div class="intro-headings">
-                <h1 class="header center">Edit this recipe</h1>
+                <h1 class="header center">Edit {{ recipes.recipe_name }} </h1>
             </div>
             <br><br>
 
@@ -159,7 +159,7 @@
 
             <div class="row">
                 <div class="current-img-container col s12">
-                    <img src={{ recipes.image }} alt="Recipe image">
+                    <img src="{{ recipes.image }}" alt="Recipe image">
                 </div>
             </div>
 

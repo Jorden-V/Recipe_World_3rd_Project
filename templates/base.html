@@ -12,23 +12,31 @@
 
 <body class="site-content">
     <header>
+
+        <form action="{{ url_for('search') }}" method="GET" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <input id="search" name="search" type="text" class="validate">
+                    <span class="helper-text" data-error="Try again" data-success="Done"></span>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+        </form>
+
         <nav>
             <div class="nav-wrapper">
-                <div class="row">
-                    <div class="col s8">
-                        <a href="" class="brand-logo">Recipe World</a>
-                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    </div>
-                    <div class="col s4">
-                        <ul id="nav-mobile" class="nav-links hide-on-med-and-down">
-                            <li><a href="{{ url_for('index') }}">Home</li>
-                            <li><a href="{{ url_for('add_recipe') }}">Add recipe</li>
-                        </ul>
-                    </div>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
-                    </ul>
-                </div>
+                <a href="" class="brand-logo">Recipe World</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</li>
+                    <li><a href="{{ url_for('add_recipe') }}">Add recipe</li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href=""><i class="medium material-icons">add_circle</i>Add recipe</a></li>
+                </ul>
             </div>
         </nav>
     </header>
