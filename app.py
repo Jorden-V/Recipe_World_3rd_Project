@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 
 
@@ -128,7 +128,7 @@ def starter_filter():
         x.append(i)
     return render_template('starterfilter.html', recipes=x)
 
-#Starter filter
+#Breakfast filter
 @app.route('/breakfast')
 def breakfast_filter():
     query = ({"$text": {"$search": "breakfast"}})
@@ -139,7 +139,7 @@ def breakfast_filter():
         x.append(i)
     return render_template('breakfastfilter.html', recipes=x)
     
-#Starter filter
+#Lunch filter
 @app.route('/lunch')
 def lunch_filter():
     query = ({"$text": {"$search": "lunch"}})
@@ -150,7 +150,7 @@ def lunch_filter():
         x.append(i)
     return render_template('lunchfilter.html', recipes=x)
     
-#Starter filter
+#Dinner filter
 @app.route('/dinner')
 def dinner_filter():
     query = ({"$text": {"$search": "dinner"}})
@@ -161,7 +161,7 @@ def dinner_filter():
         x.append(i)
     return render_template('dinnerfilter.html', recipes=x)
 
-#Starter filter
+#Dessert filter
 @app.route('/dessert')
 def dessert_filter():
     query = ({"$text": {"$search": "dessert"}})
@@ -171,6 +171,16 @@ def dessert_filter():
     for i in cur:
         x.append(i)
     return render_template('dessertfilter.html', recipes=x)
+
+@app.route('/most_viewed')
+def views():
+    recipes = mongo.db.recipes.find().sort([('views', DESCENDING)])
+    return render_template('index.html', recipes=recipes)
+
+@app.route('/most_recent')
+def date_added():
+    recipes = mongo.db.recipes.find().sort([('date_added', DESCENDING)])
+    return render_template('index.html', recipes=recipes)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

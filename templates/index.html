@@ -60,16 +60,26 @@
     </a>
         </div>
     </div>
-
 </section>
+
 <section class="container">
     <div class="row title-header">
         <h5> All recipes </h5>
         <hr>
     </div>
 </section>
-<section class="container-fluid">
 
+ <!-- Dropdown Trigger -->
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="{{ url_for('views') }}">Most viewed</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ url_for('date_added') }}">Date added</a></li>
+  </ul>
+
+<section class="container-fluid">
     <div class="row">
         {% for item in recipes %}
         <div class="col s12 m4 l3">
@@ -79,7 +89,7 @@
                 </div>
                 <div class="card-content">
                     <span class="activator grey-text text-darken-4 truncate"><p>{{ item.recipe_name }}</p><i class="material-icons right">more_vert</i></span>
-                    <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a></p>
+                    <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a><i class="right">Views:{{item.views}}</i></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.recipe_name }}</span>
@@ -91,7 +101,7 @@
                     <hr>
                     <p><i class="small material-icons left">av_timer</i> <strong>Cook time</strong>: {{item.cook_time}}</p>
                     <hr>
-                    <p><i class="small material-icons left">star</i><strong>Views</strong>:</p>
+                    <p><i class="small material-icons left">star</i><strong>Views</strong>: {{item.views}}</p>
                     <hr>
                 </div>
             </div>
