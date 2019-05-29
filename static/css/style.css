@@ -56,6 +56,12 @@ nav .button-collapse i {
 .material-icons {
     color: black;
 }
+/*------------------------ Search bar ----------------------------------*/
+
+.search-bar{
+    margin-left: 60px;
+    margin-right: 60px;
+}
 
 /*------------------------ Select category ----------------------------------*/
 

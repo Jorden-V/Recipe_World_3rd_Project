@@ -6,8 +6,13 @@
             <br><br>
             <div class="intro-headings">
                 <h1 class="header center">Welcome to Recipe World</h1>
-                <div class="row center">
-                    <h5 class="header col s12">Your one stop shop for all things food</h5>
+                <div class="search-bar">
+                    <form action="{{ url_for('search') }}" method="GET">
+                        <div class="input-field">
+                            <input id="search" name="search" type="text" class="validate">
+                            <label class="label-icon" for="search"><i class="material-icons">search</i>Search recipe</label>
+                        </div>
+                    </form>
                 </div>
             </div>
             <br><br>
@@ -25,7 +30,7 @@
     <br>
     <div class="row main-categories">
         <div class="categories hvr-grow">
-                <a href="{{ url_for('starter_filter') }}">
+            <a href="{{ url_for('starter_filter') }}">
         <img src="https://cdn.pixabay.com/photo/2017/03/17/18/17/bruschetti-2152335_960_720.jpg"></img>
         <span class="img-text"> Starters </span>
     </a>

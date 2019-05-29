@@ -5,8 +5,13 @@
             <br><br>
             <div class="intro-headings">
                 <h1 class="header center">Add a new recipe</h1>
-                <div class="row center">
-                    <h5 class="header col s12">Simply complete the form below and submit to add a new recipe</h5>
+                <div class="search-bar">
+                    <form action="{{ url_for('search') }}" method="GET">
+                        <div class="input-field">
+                            <input id="search" name="search" type="text" class="validate">
+                            <label class="label-icon" for="search"><i class="material-icons">search</i>Search recipe</label>
+                        </div>
+                    </form>
                 </div>
             </div>
             <br><br>
