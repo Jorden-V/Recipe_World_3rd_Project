@@ -97,22 +97,72 @@ def delete_recipe(recipes_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
     return redirect(url_for('index'))
 
+#Search bar
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     q = request.args.get("search", "")
-    print (q)
-    query = ({"$text": {"$search": q}})
-    print(query)
+    query = ({"$text": {"$search": q}}) 
     results = mongo.db.recipes.find(query)
-    print(results)
-    print(results.count())
-    cur = results
-    x   = []
-    for i in cur:
+    cur = results 
+    x   = [] 
+    for i in cur: 
         x.append(i)
-    print(x)
     return render_template('searchresults.html', recipes=x)
 
+#Starter filter
+@app.route('/starter')
+def starter_filter():
+    query = ({"$text": {"$search": "starter"}})
+    results = mongo.db.recipes.find(query)
+    cur = results
+    x = []
+    for i in cur:
+        x.append(i)
+    return render_template('starterfilter.html', recipes=x)
+
+#Starter filter
+@app.route('/breakfast')
+def breakfast_filter():
+    query = ({"$text": {"$search": "breakfast"}})
+    results = mongo.db.recipes.find(query)
+    cur = results
+    x = []
+    for i in cur:
+        x.append(i)
+    return render_template('breakfastfilter.html', recipes=x)
+    
+#Starter filter
+@app.route('/lunch')
+def lunch_filter():
+    query = ({"$text": {"$search": "lunch"}})
+    results = mongo.db.recipes.find(query)
+    cur = results
+    x = []
+    for i in cur:
+        x.append(i)
+    return render_template('lunchfilter.html', recipes=x)
+    
+#Starter filter
+@app.route('/dinner')
+def dinner_filter():
+    query = ({"$text": {"$search": "dinner"}})
+    results = mongo.db.recipes.find(query)
+    cur = results
+    x = []
+    for i in cur:
+        x.append(i)
+    return render_template('dinnerfilter.html', recipes=x)
+
+#Starter filter
+@app.route('/dessert')
+def dessert_filter():
+    query = ({"$text": {"$search": "dessert"}})
+    results = mongo.db.recipes.find(query)
+    cur = results
+    x = []
+    for i in cur:
+        x.append(i)
+    return render_template('dessertfilter.html', recipes=x)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
