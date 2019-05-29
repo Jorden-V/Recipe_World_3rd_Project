@@ -63,6 +63,10 @@ nav .button-collapse i {
     margin-right: 60px;
 }
 
+.input-field label {
+    text-align: right;
+}
+
 /*------------------------ Select category ----------------------------------*/
 
 h1 {

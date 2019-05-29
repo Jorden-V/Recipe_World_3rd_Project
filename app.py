@@ -19,7 +19,13 @@ def index():
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html', recipes=mongo.db.recipes.find(), categories=mongo.db.categories.find(), cuisine=mongo.db.cuisine.find(), serving_size=mongo.db.serving_size.find(), difficulty=mongo.db.difficulty.find() )
+    return render_template(
+        'addrecipe.html', 
+        recipes=mongo.db.recipes.find(), 
+        categories=mongo.db.categories.find(), 
+        cuisine=mongo.db.cuisine.find(), 
+        serving_size=mongo.db.serving_size.find(), 
+        difficulty=mongo.db.difficulty.find() )
 
 @app.route('/add_new_category', methods=['POST'])
 def add_new_category():
@@ -41,6 +47,8 @@ def insert_recipe():
 
 @app.route('/recipes/<item_id>')
 def recipes(item_id):
+    recipe = mongo.db.recipes
+    recipe.find_one_and_update({'_id': ObjectId(item_id)},{'$inc': {'views': 1}})
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(item_id)})
     return render_template('recipes.html', recipes = the_recipe)
     
