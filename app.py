@@ -36,6 +36,11 @@ def register():
     
     return render_template("register.html")
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 @app.route('/add_recipe')
 def add_recipe():
     return render_template(
