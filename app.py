@@ -1,5 +1,4 @@
 import os
-os.urandom(24)
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
@@ -60,7 +59,8 @@ def add_recipe():
         categories=mongo.db.categories.find(), 
         cuisine=mongo.db.cuisine.find(), 
         serving_size=mongo.db.serving_size.find(), 
-        difficulty=mongo.db.difficulty.find() )
+        difficulty=mongo.db.difficulty.find(),
+        user=session['username'])
 
 @app.route('/add_new_category', methods=['POST'])
 def add_new_category():
