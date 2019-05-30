@@ -24,18 +24,20 @@
 
 
 <section class="container">
- <div class="row intro-headings">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="username" id="username" type="text" class="validate">
+    <div class="row intro-headings">
+        <form method="POST" action="{{ url_for('register') }}" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="username" id="username" name="username" type="text" class="validate">
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="password" id="password" name="password" type="password" class="validate">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register
+                    <i class="material-icons ">send</i>
+                </button>
+        </form>
         </div>
-        <div class="input-field col s12">
-          <input placeholder="password" id="password" type="password" class="validate">
-        </div>
-        <a class="waves-effect waves-light btn">Register</a>
-    </form>
-  </div>
-</section>       
+</section>
 
 {% endblock %}

@@ -6,6 +6,10 @@
             <br><br>
             <div class="intro-headings">
                 <h1 class="header center">Welcome to Recipe World</h1>
+                {% if 'username' in session %}
+                <h5 class="heading sub_heading">Hello {{ session['username'] }}</h5>
+                {% else %}
+                {% endif %}
                 <div class="search-bar">
                     <form action="{{ url_for('search') }}" method="GET">
                         <div class="input-field">

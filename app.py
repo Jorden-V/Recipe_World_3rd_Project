@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+os.urandom(24)
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'recipe_site'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.secret_key = os.urandom(24)
 
 mongo = PyMongo(app)
 
@@ -15,14 +17,23 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template("index.html", recipes=mongo.db.recipes.find())
+    return render_template("index.html", recipes=mongo.db.recipes.find(), users=mongo.db.users.find())
 
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     return render_template("login.html")
 
-@app.route('/register')
+@app.route('/register', methods=['POST', 'GET'])
 def register():
+    if request.method == "POST":
+        users = mongo.db.users
+        existing_user = users.find_one({"username" : request.form['username']})
+    
+        if existing_user is None:
+            users.insert_one(request.form.to_dict())
+            session['username'] = request.form['username']
+            return redirect(url_for("index"))
+    
     return render_template("register.html")
 
 @app.route('/add_recipe')
