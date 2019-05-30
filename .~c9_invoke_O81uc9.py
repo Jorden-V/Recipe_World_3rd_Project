@@ -17,13 +17,14 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template("index.html", recipes=mongo.db.recipes.find())
+    return render_template("index.html", recipes=mongo.db.recipes.find(), users=mongo.db.users.find())
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         users = mongo.db.users
-        login_user = users.find_one({'username': request.form['username']})
+        login_user = users.find_one({'name' : request.form['username']})
+        
         if login_user:
             if request.form['password'] == login_user['password']:
                 session['username'] = request.form['username']
