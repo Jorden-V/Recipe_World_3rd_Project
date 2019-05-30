@@ -22,9 +22,17 @@
     <div class="parallax"><img src="{{url_for('static', filename='images/main-banner.jpg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
 </div>
 
-
 <section class="container">
     <div class="row intro-headings">
+
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+
         <form method="POST" action="{{ url_for('register') }}" class="col s12">
             <div class="row">
                 <div class="input-field col s12">

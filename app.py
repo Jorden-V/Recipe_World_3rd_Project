@@ -1,6 +1,6 @@
 import os
 os.urandom(24)
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 
@@ -33,6 +33,9 @@ def register():
             users.insert_one(request.form.to_dict())
             session['username'] = request.form['username']
             return redirect(url_for("index"))
+        
+        flash('That username already exists! Please choose another')
+        
     
     return render_template("register.html")
 
