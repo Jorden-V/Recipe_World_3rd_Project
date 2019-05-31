@@ -56,9 +56,10 @@ nav .button-collapse i {
 .material-icons {
     color: black;
 }
+
 /*------------------------ Search bar ----------------------------------*/
 
-.search-bar{
+.search-bar {
     margin-left: 60px;
     margin-right: 60px;
 }
@@ -189,10 +190,20 @@ ol li {
     margin-top: 15px;
 }
 
-.card-image img{
+.card-image img {
     background-image: url(/static/images/noimage.png);
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
+}
+
+.container-fluid {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container-fluid .dropdown-button {
+    margin-left: 11px;
 }
 
 /*------------------------ Footer ----------------------------------*/
