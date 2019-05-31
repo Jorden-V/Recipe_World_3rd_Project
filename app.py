@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 
-
+   
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'recipe_site'
@@ -90,9 +90,24 @@ def recipes(item_id):
 
 @app.route('/edit_recipe/<recipes_id>')
 def edit_recipe(recipes_id):
-    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
-    recipe_detail = mongo.db.recipes.find()
-    return render_template('editrecipe.html', recipes=the_recipe, detail=recipe_detail, recipes1=mongo.db.recipes.find(), categories=mongo.db.categories.find(), cuisine=mongo.db.cuisine.find(), serving_size=mongo.db.serving_size.find(), difficulty=mongo.db.difficulty.find()  )
+    if "username" in session:
+        username = session["username"]
+        the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+        recipe_detail = mongo.db.recipes.find()
+        #check if the author of the recipe is the same as the username
+        #assuming your calling author of recipe author in database if not change if
+        if the_recipe['username'] == username:
+            return render_template('editrecipe.html', recipes=the_recipe, detail=recipe_detail, recipes1=mongo.db.recipes.find(), categories=mongo.db.categories.find(), cuisine=mongo.db.cuisine.find(), serving_size=mongo.db.serving_size.find(), difficulty=mongo.db.difficulty.find()  )
+        else:
+			#redirect as they are not allowed edit another users recipe
+			#return render_template(url_for('/index'))
+			
+			#you might need to do this so in top of page make sure you have
+			#from flask import Flask, redirect, etc ... redirect added
+            return redirect(url_for('index'))
+    else:
+        #user not logged in so redirect
+        return redirect(url_for('index'))
 
 
 @app.route('/update_recipe/<recipes_id>', methods=['POST'])
@@ -137,9 +152,17 @@ def update_recipe(recipes_id):
 
 @app.route('/delete_recipe/<recipes_id>')
 def delete_recipe(recipes_id):
-    mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
-    return redirect(url_for('index'))
-
+    if "username" in session:
+        username = session["username"]
+        the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+        if the_recipe['username'] == username:
+            mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
+            return redirect(url_for('index'))
+        else:
+            return redirect(url_for('index'))
+    else:
+        return redirect(url_for('index'))
+        
 #Search bar
 @app.route('/search', methods=['GET', 'POST'])
 def search():
