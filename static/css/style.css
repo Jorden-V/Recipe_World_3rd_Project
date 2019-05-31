@@ -189,6 +189,12 @@ ol li {
     margin-top: 15px;
 }
 
+.card-image img{
+    background-image: url(/static/images/noimage.png);
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
 /*------------------------ Footer ----------------------------------*/
 
 .page-footer {
@@ -203,7 +209,7 @@ ol li {
 }
 
 .contact-us {
-    padding-top: 17px;
+    margin-top: 20px;
 }
 
 .modal-content h3 {

@@ -89,10 +89,10 @@
         <div class="col s12 m4 l3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{item.image}}" alt="Image of meal">
+                    <img class="activator" src="{{item.image}}" alt="">
                 </div>
                 <div class="card-content">
-                    <span class="activator grey-text text-darken-4 truncate"><p>{{ item.recipe_name }}</p><i class="material-icons right">more_vert</i></span>
+                    <span class="activator grey-text text-darken-4 truncate"><p>{{ item.recipe_name }}</p><i class="material-icons right hvr-grow">more_vert</i></span>
                     <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a><i class="right">Views:{{item.views}}</i></p>
                 </div>
                 <div class="card-reveal">
