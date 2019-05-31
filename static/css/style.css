@@ -10,7 +10,7 @@ nav {
 
 nav .brand-logo {
     font-family: 'Satisfy', cursive;
-    font-size: 3.1rem;
+    font-size: 2.2rem;
     color: black;
 }
 
@@ -72,6 +72,7 @@ nav .button-collapse i {
 
 h1 {
     font-family: 'Satisfy', cursive;
+    font-size: 3rem;
 }
 
 h5 {
@@ -226,6 +227,16 @@ ol li {
 .modal-content h3 {
     text-align: center;
     color: black;
+}
+
+.modal .modal-content {
+    padding: 24px;
+    color: black;
+}
+
+.container .row {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 @media only screen and (min-width: 600px) {
