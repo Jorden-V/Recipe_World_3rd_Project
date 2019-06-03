@@ -239,6 +239,10 @@ ol li {
     margin-right: 0px;
 }
 
+.card {
+    width:100%;
+}
+
 @media only screen and (min-width: 600px) {
     .card-allignment {
         display: flex;
