@@ -55,22 +55,29 @@
                     <div class="contact-us col s4">
                         <a href="#modal3" class="waves-effect waves-light btn modal-trigger">Contact Us</a>
                         <div id="modal3" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                                <h3>Contact Form</h3>
-                                <div class="container">
-                                    <form action="/action_page.php">
+                            <form action="{{ url_for('contact_requests') }}" method="POST">
+                                <div class="modal-content">
+                                    <h3>Contact Form</h3>
+                                    <div class="container">
+                                        <div class="row"></div>
+                                        <div class="col s6">
                                         <label for="fname">First Name</label>
-                                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                                        <input type="text" id="fname" name="first_name" required placeholder="Your name..">
+                                        </div>
+                                        <div class="col s6">
                                         <label for="lname">Last Name</label>
-                                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                                        <input type="text" id="lname" name="last_name" required placeholder="Your last name..">
+                                        </div>
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email" required placeholder="Email">
                                         <label for="subject">Subject</label>
-                                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                                    </form>
+                                        <textarea id="subject" name="subject" required placeholder="Write something.." style="height:200px"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Submit</a>
-                            </div>
+                                <div class="modal-footer">
+                                    <button class="waves-effect waves-light btn">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="col s8">
