@@ -21,14 +21,12 @@
                 </div>
             </div>
             <br><br>
-
         </div>
     </div>
     <div class="parallax"><img src="{{url_for('static', filename='images/main-banner-2.jpg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
 </div>
 
 <section class="container">
-
     <div class="row title-header">
         <h5> Category or Cuisine missing from the drop down below?</h5>
         <p> Just add the category or cuisine name below</p>
@@ -63,7 +61,6 @@
                         <input id="cuisine_type" name="cuisine_type" type="text" class="validate">
                         <span class="helper-text" data-error="Try again" data-success="Done"></span>
                         <label for="category">Type New Cuisine Here</label>
-
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit">Submit
@@ -72,7 +69,6 @@
             </form>
         </div>
     </div>
-    </div>
 
     <div class="row title-header">
         <h5> Recipe info </h5>
@@ -80,7 +76,6 @@
 
     <div>
         <form action="{{ url_for('insert_recipe') }}" method="POST">
-            
             <div class="row intro-headings">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
@@ -93,7 +88,7 @@
                     <label for="icon_prefix">Description</label>
                 </div>
             </div>
-            
+
             <div class="row intro-headings">
                 <div class="input-field col s12 m6">
                     <select id="category_name" name="category_name" required>
@@ -276,18 +271,15 @@
                         <input id="data_added" name="date_added" type="text" class="datepicker" required="required">
                         <label for="date_added">Select date <span class="red-text">* required</span></label>
                     </div>
-                        <input type="hidden" id="username" name="username" type="text" value="{{user}}">
+                    <input type="hidden" id="username" name="username" type="text" value="{{user}}">
                 </div>
 
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit recipe!
               <i class="material-icons right">playlist_add</i>
             </button>
             </div>
-            
-            
         </form>
     </div>
-
 </section>
 
 {% endblock %}

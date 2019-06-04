@@ -30,7 +30,6 @@
 
 <section class="container">
     <div class="row intro-headings input-box">
-
         {% with messages = get_flashed_messages() %} {% if messages %}
         <ul class=flashes>
             {% for message in messages %}
@@ -50,8 +49,9 @@
                 <button type="submit" class="btn btn-primary btn-block">Login
                     <i class="material-icons ">send</i>
                 </button>
+            </div>
         </form>
-        </div>
+    </div>
 </section>
 
 {% endblock %}
