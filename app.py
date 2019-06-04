@@ -12,12 +12,13 @@ app.secret_key = os.urandom(24)
 mongo = PyMongo(app)
 
 
+"""Home page displays all recipes stored"""
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template("index.html", recipes=mongo.db.recipes.find())
 
-
+"""User Login Form"""
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -30,7 +31,7 @@ def login():
             flash('Invalid username/password combination')
     return render_template('login.html')
 
-
+"""User registration Form"""
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == "POST":
@@ -46,13 +47,13 @@ def register():
 
     return render_template("register.html")
 
-
+"""User logout"""
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('index'))
 
-
+"""Add a recipe"""
 @app.route('/add_recipe')
 def add_recipe():
     return render_template(
@@ -64,35 +65,35 @@ def add_recipe():
         difficulty=mongo.db.difficulty.find(),
         user=session['username'])
 
-
+"""Add new category to database"""
 @app.route('/add_new_category', methods=['POST'])
 def add_new_category():
     category_name = mongo.db.categories
     category_name.insert_one(request.form.to_dict())
     return redirect(url_for('add_recipe'))
 
-
+"""Add new cuisine to database"""
 @app.route('/add_new_cuisine', methods=['POST'])
 def add_new_cuisine():
     cuisine_type = mongo.db.cuisine
     cuisine_type.insert_one(request.form.to_dict())
     return redirect(url_for('add_recipe'))
 
-
+"""Add new recipe to database"""
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
-
+"""Add new contact request to database"""
 @app.route('/contact_requests', methods=['POST'])
 def contact_requests():
     requests = mongo.db.contact_requests
     requests.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
-
+"""Displays detailed recipe page by ID"""
 @app.route('/recipes/<item_id>')
 def recipes(item_id):
     recipe = mongo.db.recipes
@@ -100,7 +101,7 @@ def recipes(item_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(item_id)})
     return render_template('recipes.html', recipes=the_recipe)
 
-
+"""Checks if user created recipe, if so they may edit, if not, redirect to index"""
 @app.route('/edit_recipe/<recipes_id>')
 def edit_recipe(recipes_id):
     if "username" in session:
@@ -114,7 +115,7 @@ def edit_recipe(recipes_id):
     else:
         return redirect(url_for('index'))
 
-
+"""Updates database with new information"""
 @app.route('/update_recipe/<recipes_id>', methods=['POST'])
 def update_recipe(recipes_id):
     recipes = mongo.db.recipes
@@ -155,7 +156,7 @@ def update_recipe(recipes_id):
     })
     return redirect(url_for('index'))
 
-
+"""Checks if user created recipe, if so they may delete from database, if not, redirect to index"""
 @app.route('/delete_recipe/<recipes_id>')
 def delete_recipe(recipes_id):
     if "username" in session:
@@ -170,7 +171,7 @@ def delete_recipe(recipes_id):
         return redirect(url_for('index'))
 
 
-# Search bar
+"""Text input search"""
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     q = request.args.get("search", "")
@@ -183,7 +184,7 @@ def search():
     return render_template('searchresults.html', recipes=x)
 
 
-# Starter filter
+"""Starter filter"""
 @app.route('/starter')
 def starter_filter():
     query = ({"$text": {"$search": "starter"}})
@@ -195,7 +196,7 @@ def starter_filter():
     return render_template('starterfilter.html', recipes=x)
 
 
-# Breakfast filter
+"""Breakfast filter"""
 @app.route('/breakfast')
 def breakfast_filter():
     query = ({"$text": {"$search": "breakfast"}})
@@ -207,7 +208,7 @@ def breakfast_filter():
     return render_template('breakfastfilter.html', recipes=x)
 
 
-# Lunch filter
+"""Lunch filter"""
 @app.route('/lunch')
 def lunch_filter():
     query = ({"$text": {"$search": "lunch"}})
@@ -219,7 +220,7 @@ def lunch_filter():
     return render_template('lunchfilter.html', recipes=x)
 
 
-# Dinner filter
+"""Dinner filter"""
 @app.route('/dinner')
 def dinner_filter():
     query = ({"$text": {"$search": "dinner"}})
@@ -231,7 +232,7 @@ def dinner_filter():
     return render_template('dinnerfilter.html', recipes=x)
 
 
-# Dessert filter
+"""Dessert filter"""
 @app.route('/dessert')
 def dessert_filter():
     query = ({"$text": {"$search": "dessert"}})
@@ -242,13 +243,13 @@ def dessert_filter():
         x.append(i)
     return render_template('dessertfilter.html', recipes=x)
 
-
+"""Most viewed filter"""
 @app.route('/most_viewed')
 def views():
     recipes = mongo.db.recipes.find().sort([('views', DESCENDING)])
     return render_template('index.html', recipes=recipes)
 
-
+"""Most recent filter"""
 @app.route('/most_recent')
 def date_added():
     recipes = mongo.db.recipes.find().sort([('date_added', DESCENDING)])
