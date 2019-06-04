@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+<!--===== Search bar + page header =====-->
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -31,6 +32,7 @@
         <h5> Category or Cuisine missing from the drop down below?</h5>
         <p> Just add the category or cuisine name below</p>
     </div>
+
     <!--   New Category   -->
     <div class="row intro-headings">
         <div class="col s12 m6">
@@ -52,7 +54,6 @@
 
 
         <!--   New Cuisine   -->
-
         <div class="col s12 m6">
             <form action="{{ url_for('add_new_cuisine') }}" method="POST" class="col s12">
                 <div class="row">
@@ -73,7 +74,8 @@
     <div class="row title-header">
         <h5> Recipe info </h5>
     </div>
-
+    
+    <!--===== Recipe input form =====-->
     <div>
         <form action="{{ url_for('insert_recipe') }}" method="POST">
             <div class="row intro-headings">

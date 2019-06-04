@@ -1,14 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-
+<!--===== Search bar + page header =====-->
 <div id="index-banner" class="parallax-container">
  <div class="section no-pad-bot">
   <div class="container">
    <br><br>
    <div class="intro-headings">
     <h1 class="header center">{{recipes.recipe_name }}</h1>
+    <div class="search-bar">
+     <form action="{{ url_for('search') }}" method="GET">
+      <div class="input-field">
+       <div class="row">
+        <div class="col s11">
+         <input id="search" name="search" type="text" class="validate">
+        </div>
+        <div class="col s1">
+         <button><i class="material-icons">search</i></button>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
    </div>
    <br><br>
-
   </div>
  </div>
  <div class="parallax"><img src="{{url_for('static', filename='images/main-banner-3.jpeg')}}" alt="image of ingredients" style="transform: translate3d(-50%, 251.736px, 0px); opacity: 1;"></div>
@@ -16,6 +29,7 @@
 
 <section class="container">
 
+<!--===== Recipie image and name =====-->
  <div class="row card-allignment">
   <div class="card-allignment col s12 m6">
    <div class="card">
@@ -29,6 +43,7 @@
    </div>
   </div>
 
+<!--===== Key information =====-->
   <div class="card-allignment col s12 m6">
    <div class="card">
     <div class="card-content">
@@ -61,6 +76,8 @@
  <div class="row title-header">
   <h5> Recipe ingredients </h5>
  </div>
+
+<!--===== Ingredients =====-->
 
  <div class="row">
   <div class="row intro-headings">
@@ -100,6 +117,8 @@
    <h5> Method </h5>
   </div>
 
+
+<!--===== Method =====-->
   <div class="row intro-headings method-text">
 
    <ol>
@@ -116,8 +135,10 @@
    </ol>
   </div>
 
-{% if session['username'] == recipes.username %}
+  {% if session['username'] == recipes.username %}
 
+
+<!--===== Edit/delete button pending session logged in =====-->
   <div class="row">
    <div class="input-field title-header col s6">
     <a href="{{ url_for('edit_recipe', recipes_id=recipes._id) }}"><i class="material-icons prefix">today</i>

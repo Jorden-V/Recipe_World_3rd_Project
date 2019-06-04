@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+<!--===== Page header =====-->
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -40,7 +41,6 @@
 
 
         <!--   New Cuisine   -->
-
         <div class="col s12 m6">
             <form action="{{ url_for('add_new_cuisine') }}" method="POST" class="col s12">
                 <div class="row">
@@ -63,9 +63,9 @@
         <h5> Recipe info </h5>
     </div>
 
+    <!--===== Recipe edit form =====-->
     <div>
         <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST">
-
             <div class="row intro-headings">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
@@ -139,7 +139,7 @@
                 <div class="input-field col s12 m6 l6">
                     <i class="material-icons prefix">timer</i><br><br>
                     <p class="range-field">
-                        <input type="range" id="prep_time" name="prep_time" value="{{ recipes.prep_time }}"  min="0" max="120" />
+                        <input type="range" id="prep_time" name="prep_time" value="{{ recipes.prep_time }}" min="0" max="120" />
                     </p>
                     <label for="prep_time">Prepearation Time (mins)</label>
                 </div>
@@ -163,7 +163,7 @@
             </div>
 
             <div class="row title-header">
-                <h5> Insert new image URL </h5>
+                <h5> Insert new image URL <a class="modal-trigger" href="#modal1"><i class="material-icons prefix hvr-grow">info_outline</i></a>  </h5>
             </div>
 
             <div id="modal1" class="modal">
@@ -198,7 +198,7 @@
                         <label for="name">Ingredient 1 <span class="red-text">* required</span></label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="ingredients_2" name="ingredients_2" type="text" class="validate" value="{{ recipes.ingredients_2 }}" >
+                        <input id="ingredients_2" name="ingredients_2" type="text" class="validate" value="{{ recipes.ingredients_2 }}">
                         <label for="name">Ingredient 2</label>
                     </div>
                     <div class="input-field col s6">
@@ -298,8 +298,6 @@
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit recipe!
               <i class="material-icons right">playlist_add</i>
             </button>
-
-
             </div>
         </form>
     </div>
