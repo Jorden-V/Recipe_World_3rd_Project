@@ -1,9 +1,57 @@
+/*------------------------ General styling ----------------------------------*/
 a {
     color: black;
 }
 
-/*------------------------ Navbar ----------------------------------*/
+.container .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
+h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+}
+
+h5 {
+    font-family: 'Courgette', cursive;
+}
+
+.site-content {
+    margin: 0 auto;
+}
+
+.title-header {
+    text-align: center;
+}
+
+.section-bg {
+    background-color: white;
+}
+
+ol li {
+    border: 1px solid transparent;
+    clear: both;
+    margin: .5rem 0;
+}
+
+.container-fluid {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container-fluid .dropdown-button {
+    margin-left: 11px;
+}
+
+
+.list-inline li {
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+/*------------------------ Navbar ----------------------------------*/
 nav {
     background-color: white;
 }
@@ -29,6 +77,10 @@ nav .button-collapse i {
 
 .nav-links {
     margin-left: 130px;
+}
+
+nav .brand-logo {
+    padding-left: 5px;
 }
 
 /*------------------------ main banner ----------------------------------*/
@@ -70,43 +122,13 @@ nav .button-collapse i {
 
 /*------------------------ Select category ----------------------------------*/
 
-h1 {
-    font-family: 'Satisfy', cursive;
-    font-size: 3rem;
-}
-
-h5 {
-    font-family: 'Courgette', cursive;
-}
-
 .categories span {
     font-family: 'Courgette', cursive;
     color: black;
 }
 
-.card .card-image img {
-    max-height: 255px;
-    min-height: 255px;
-}
-
-.site-content {
-    margin: 0 auto;
-}
-
-nav .brand-logo {
-    padding-left: 5px;
-}
-
-.title-header {
-    text-align: center;
-}
-
 .main-categories {
     text-align: center
-}
-
-.height-allignment {
-    max-width: 360px;
 }
 
 .categories {
@@ -126,30 +148,17 @@ nav .brand-logo {
     border-radius: 50%;
 }
 
-.img-text {
-    display: block;
+/*------------------------ Recipe cards ----------------------------------*/
+
+.card .card-image img {
+    max-height: 255px;
+    min-height: 255px;
 }
 
-.content-style {
-    padding: 15px 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    margin: 12.5px 0;
-    text-align: center;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
+.height-allignment {
+    max-width: 360px;
 }
 
-.content-style img {
-    height: 298px;
-    width: 298px;
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.section-bg {
-    background-color: white;
-}
 
 .recipe-image {
     max-height: 100%;
@@ -158,20 +167,28 @@ nav .brand-logo {
 
 .recipe-info {
     margin-top: 32px;
-
 }
 
-
-ol li {
-    border: 1px solid transparent;
-    clear: both;
-    margin: .5rem 0;
-}
 
 .method-text {
     text-align: left;
 }
 
+.card-content p {
+    margin-top: 15px;
+}
+
+.card-image img {
+    background-image: url(/static/images/noimage.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.card {
+    width:100%;
+}
+/*------------------------ Edit recipes ----------------------------------*/
 .current-img-container {
     text-align: center
 }
@@ -186,37 +203,11 @@ ol li {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.card-content p {
-    margin-top: 15px;
-}
-
-.card-image img {
-    background-image: url(/static/images/noimage.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-.container-fluid {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.container-fluid .dropdown-button {
-    margin-left: 11px;
-}
-
 /*------------------------ Footer ----------------------------------*/
 
 .page-footer {
     padding: 0;
     background-color: rgba(51, 51, 51, 0.08);
-}
-
-.list-inline li {
-    display: inline-block;
-    font-size: 25px;
-    margin-left: 15px;
 }
 
 .contact-us {
@@ -233,14 +224,7 @@ ol li {
     color: black;
 }
 
-.container .row {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.card {
-    width:100%;
-}
+/*------------------------ Media querie ----------------------------------*/
 
 @media only screen and (min-width: 600px) {
     .card-allignment {
