@@ -10,11 +10,12 @@ a {
 
 h1 {
     font-family: 'Satisfy', cursive;
-    font-size: 3rem;
+    font-size: 2.7rem;
 }
 
 h5 {
     font-family: 'Courgette', cursive;
+    font-size: 1rem;
 }
 
 .site-content {
@@ -96,7 +97,7 @@ nav .brand-logo {
 }
 
 .intro-headings {
-    padding: 15px 10px;
+    padding: 10px 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.9);
     margin: 12.5px 0;

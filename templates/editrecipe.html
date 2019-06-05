@@ -68,12 +68,10 @@
         <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST">
             <div class="row intro-headings">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">image</i>
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipes.recipe_name }}" required="required">
                     <label for="icon_prefix">Recipe name</label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">image</i>
                     <input id="description" name="description" type="text" class="validate" value="{{ recipes.description }}" required="required">
                     <label for="icon_prefix">Description</label>
                 </div>
@@ -287,11 +285,6 @@
                         <i class="material-icons prefix">today</i>
                         <input id="data_added" name="date_added" type="text" class="datepicker" value="{{ recipes.date_added }}" required="required">
                         <label for="date_added">Select date <span class="red-text">* required</span></label>
-                    </div>
-                    <div class="input-field col s12 m6 l6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="author_name" name="author_name" type="text" class="validate" value="{{ recipes.author_name }}" required="required">
-                        <label for="name">Added By</label>
                     </div>
                 </div>
 
