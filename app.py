@@ -131,7 +131,7 @@ def update_recipe(recipes_id):
         'serving_size': request.form['serving_size'],
         'difficulty': request.form['difficulty'],
         'date_added': request.form['date_added'],
-        'author_name': request.form['author_name'],
+        'username': request.form['username'],
         'ingredients_1': request.form['ingredients_1'],
         'ingredients_2': request.form['ingredients_2'],
         'ingredients_3': request.form['ingredients_3'],
