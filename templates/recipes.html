@@ -124,16 +124,45 @@
   <div class="row intro-headings method-text">
 
    <ol>
+    {% if recipes.method_1 == "" %} {% else %}
     <li><span>{{recipes.method_1}}</span></li>
+    {% endif %} 
+    {% if recipes.method_2 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_2}}</span></li>
+    {% endif %} 
+    {% if recipes.method_3 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_3}}</span></li>
+    {% endif %} 
+    {% if recipes.method_4 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_4}}</span></li>
+    {% endif %} 
+    {% if recipes.method_5 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_5}}</span></li>
+    {% endif %} 
+    {% if recipes.method_6 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_6}}</span></li>
+    {% endif %}
+    {% if recipes.method_7 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_7}}</span></li>
+    {% endif %} 
+    {% if recipes.method_8 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_8}}</span></li>
+    {% endif %} 
+    {% if recipes.method_9 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_9}}</span></li>
+    {% endif %}
+        {% if recipes.method_10 == "" %} 
+    {% else %}
     <li><span>{{recipes.method_10}}</span></li>
+    {% endif %}
    </ol>
   </div>
 
