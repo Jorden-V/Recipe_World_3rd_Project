@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <!--===== Search bar + page header =====-->
 <div id="index-banner" class="parallax-container">
- <div class="section no-pad-bot">
+<div class="section no-pad-bot">
   <div class="container">
    <br><br>
    <div class="intro-headings">
@@ -29,7 +29,7 @@
 
 <section class="container">
 
-<!--===== Recipie image and name =====-->
+ <!--===== Recipie image and name =====-->
  <div class="row card-allignment">
   <div class="card-allignment col s12 m6">
    <div class="card">
@@ -43,7 +43,7 @@
    </div>
   </div>
 
-<!--===== Key information =====-->
+  <!--===== Key information =====-->
   <div class="card-allignment col s12 m6">
    <div class="card">
     <div class="card-content">
@@ -77,7 +77,7 @@
   <h5> Recipe ingredients </h5>
  </div>
 
-<!--===== Ingredients =====-->
+ <!--===== Ingredients =====-->
 
  <div class="row">
   <div class="row intro-headings">
@@ -118,7 +118,7 @@
   </div>
 
 
-<!--===== Method =====-->
+  <!--===== Method =====-->
   <div class="row intro-headings method-text">
 
    <ol>
@@ -138,7 +138,7 @@
   {% if session['username'] == recipes.username %}
 
 
-<!--===== Edit/delete button pending session logged in =====-->
+  <!--===== Edit/delete button pending session logged in =====-->
   <div class="row">
    <div class="input-field title-header col s6">
     <a href="{{ url_for('edit_recipe', recipes_id=recipes._id) }}"><i class="material-icons prefix">today</i>
