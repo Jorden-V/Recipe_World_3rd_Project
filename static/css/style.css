@@ -175,8 +175,8 @@ nav .brand-logo {
     text-align: left;
 }
 
-.card-content p {
-    margin-top: 15px;
+.card .card-content p {
+    margin: 5px 0 0 0;
 }
 
 .card-image img {
