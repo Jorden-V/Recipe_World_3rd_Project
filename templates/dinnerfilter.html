@@ -82,9 +82,15 @@
         {% for item in recipes %}
         <div class="col s12 m4 l3">
             <div class="card">
+                {% if item.image == "" %}
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="" alt="">
+                </div>
+                {% else %}
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{{item.image}}" alt="image of {{item.recipe_name}}">
                 </div>
+                {% endif %}
                 <div class="card-content">
                     <span class="activator grey-text text-darken-4 truncate"><p>{{ item.recipe_name }}</p><i class="material-icons right hvr-grow">more_vert</i></span>
                     <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a><i class="right">Views:{{item.views}}</i></p>

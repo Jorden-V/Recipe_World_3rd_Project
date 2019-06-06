@@ -34,7 +34,11 @@
   <div class="card-allignment col s12 m6">
    <div class="card">
     <div class="card-image">
+     {% if recipes.image == "" %}
+     <img src="" alt="">
+     {% else %}
      <img src="{{recipes.image}}" alt="image of {{recipes.recipe_name}} ">
+     {% endif %}
      <span class="card-title">{{ recipes.recipe_name }}</span>
     </div>
     <div class="card-content">

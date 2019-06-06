@@ -155,13 +155,19 @@
             </div>
 
             <div class="row">
+                {% if recipes.image == "" %}
+                <div class="current-img-container col s12">
+                    <img src="" alt="">
+                </div>
+                {% else %}
                 <div class="current-img-container col s12">
                     <img src="{{ recipes.image }}" alt="image of {{recipes.recipe_name}} ">
                 </div>
+                {% endif %}
             </div>
 
             <div class="row title-header">
-                <h5> Insert new image URL <a class="modal-trigger" href="#modal1"><i class="material-icons prefix hvr-grow">info_outline</i></a>  </h5>
+                <h5> Insert new image URL <a class="modal-trigger" href="#modal1"><i class="material-icons prefix hvr-grow">info_outline</i></a> </h5>
             </div>
 
             <div id="modal1" class="modal">
