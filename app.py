@@ -69,14 +69,31 @@ def add_recipe():
 @app.route('/add_new_category', methods=['POST'])
 def add_new_category():
     category_name = mongo.db.categories
-    category_name.insert_one(request.form.to_dict())
+    if request.method == "POST":
+        for i in request.form:
+            if i == "edit":
+                category_name.insert_one({'category_name': request.form['category_name']})
+                print(request.referrer)
+                return redirect(request.referrer)
+            if i == "add":
+                category_name.insert_one({'category_name': request.form['category_name']})
+                return redirect(url_for('add_recipe'))
     return redirect(url_for('add_recipe'))
 
 """Add new cuisine to database"""
 @app.route('/add_new_cuisine', methods=['POST'])
 def add_new_cuisine():
     cuisine_type = mongo.db.cuisine
-    cuisine_type.insert_one(request.form.to_dict())
+    if request.method == "POST":
+        for i in request.form:
+            if i == "edit":
+                cuisine_type.insert_one({'cuisine_type': request.form['cuisine_type']})
+                print(request.referrer)
+                return redirect(request.referrer)
+            if i == "add":
+                cuisine_type.insert_one({'cuisine_type': request.form['cuisine_type']})
+                return redirect(url_for('add_recipe'))
+    
     return redirect(url_for('add_recipe'))
 
 """Add new recipe to database"""
@@ -90,7 +107,10 @@ def insert_recipe():
 @app.route('/contact_requests', methods=['POST'])
 def contact_requests():
     requests = mongo.db.contact_requests
-    requests.insert_one(request.form.to_dict())
+    requests.insert_one(request.form,
+    {'category_name'
+        
+    })
     return redirect(url_for('index'))
 
 """Displays detailed recipe page by ID"""

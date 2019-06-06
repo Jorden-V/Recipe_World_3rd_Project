@@ -93,7 +93,7 @@
                 {% endif %}
                 <div class="card-content">
                     <span class="activator grey-text text-darken-4 truncate"><p>{{ item.recipe_name }}</p><i class="material-icons right hvr-grow">more_vert</i></span>
-                    <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn">View full recipe</a><i class="right">Views:{{item.views}}</i></p>
+                    <p><a href="{{ url_for('recipes', item_id = item._id) }}" class="waves-effect waves-light btn hvr-grow">View full recipe</a><i class="right">Views:{{item.views}}</i></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.recipe_name }}</span>

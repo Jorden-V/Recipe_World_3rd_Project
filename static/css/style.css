@@ -52,6 +52,8 @@ ol li {
     margin-left: 15px;
 }
 
+
+
 /*------------------------ Navbar ----------------------------------*/
 nav {
     background-color: white;
@@ -90,6 +92,7 @@ nav .brand-logo {
 .btn-large {
     background-color: black;
     color: white;
+    letter-spacing: 0px;
 }
 
 .parallax-container {
@@ -119,6 +122,14 @@ nav .brand-logo {
 
 .input-field .label-icon {
     text-align: right;
+}
+
+.input-field button {
+    border-radius: 50%
+}
+
+.input-field button i {
+    margin-top: 5px;
 }
 
 /*------------------------ Select category ----------------------------------*/

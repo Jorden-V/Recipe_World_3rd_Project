@@ -124,6 +124,10 @@ In the future I would like to implement the below features.
 - [Flask](http://flask.pocoo.org/)
      - Flask was used to extend pythons functionality to the frond end.
 
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+     - A lot of the JavaScript was done by the frameworks used via jQuery however for items such as the datepicker JavaScript was required.
+
+
 - [jQuery](https://jquery.com/)
      - This was used in conjunction with a number of Materializes functions such as the modals, collapsable navbar, datepicker etc.
 
@@ -205,6 +209,6 @@ In the future I would like to implement the below features.
 ### Acknowledgements
 
 - I received inspiration for this project from a combination of the mini projects leading up to this.
-- The Slack community have been great on giving me feedback on my project.
+- The Slack community have been great on giving me feedback on my project (Shane Muirhead in particular has been very helpful).
 - The tutors at code institute have also been helpful.
 - My mentor Jim Richmond has supported with feedback on the project.
