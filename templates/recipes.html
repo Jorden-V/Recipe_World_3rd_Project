@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <!--===== Search bar + page header =====-->
 <div id="index-banner" class="parallax-container">
-<div class="section no-pad-bot">
+ <div class="section no-pad-bot">
   <div class="container">
    <br><br>
    <div class="intro-headings">
@@ -35,10 +35,8 @@
    <div class="card">
     <div class="card-image">
      {% if recipes.image == "" %}
-     <img src="" alt="">
-     {% else %}
-     <img src="{{recipes.image}}" alt="image of {{recipes.recipe_name}} ">
-     {% endif %}
+     <img src="" alt=""> {% else %}
+     <img src="{{recipes.image}}" alt="image of {{recipes.recipe_name}} "> {% endif %}
      <span class="card-title">{{ recipes.recipe_name }}</span>
     </div>
     <div class="card-content">
@@ -145,16 +143,11 @@
   <!--===== Edit/delete button pending session logged in =====-->
   <div class="row">
    <div class="input-field title-header col s6">
-    <a href="{{ url_for('edit_recipe', recipes_id=recipes._id) }}"><i class="material-icons prefix">today</i>
-    <button class="btn waves-effect waves-light blue" type="submit" name="action">Edit recipe
-<i class="material-icons right">playlist_add</i></a>
-    </button>
+    <a class="btn waves-effect waves-light blue hvr-grow" href="{{ url_for('edit_recipe', recipes_id=recipes._id) }}"></i>Edit recipe<i class="material-icons right">playlist_add</i></a>
    </div>
    <div class="input-field title-header col s6">
     <i class="material-icons prefix">account_circle</i>
-    <a class="modal-trigger" href="#modal2"><button class="btn waves-effect waves-light red">Delete recipe
-<i class="material-icons right">playlist_add</i></a>
-    </button>
+    <a class="modal-trigger btn waves-effect waves-light red hvr-grow" href="#modal2">Delete recipe <i class="material-icons right">playlist_add</i></a>
    </div>
   </div>
 
@@ -164,8 +157,8 @@
     <p>Once delete is selected there is no going back!</p>
    </div>
    <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No thanks</a>
-    <a href="{{ url_for('delete_recipe', recipes_id=recipes._id) }}" class="modal-action modal-close waves-effect waves-green btn-flat red">Delete</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat hvr-grow">No thanks</a>
+    <a href="{{ url_for('delete_recipe', recipes_id=recipes._id) }}" class="modal-action modal-close waves-effect waves-green btn-flat red hvr-grow">Delete</a>
    </div>
   </div>
   {% endif %}
