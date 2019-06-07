@@ -1,6 +1,6 @@
 # Recipe website - Recipe World
 
-In order to edit/delete recipes you must be the reicpe creator. For the prupose of submitting this project and testing I have provided the username/password for the below recipes, although feel free to create your own user and add your own recipes to edit and delete.
+In order to edit/delete recipes you must be the recipe creator. For the purpose of submitting this project and testing I have provided the username/password for the below recipes, although feel free to create your own user and add your own recipes to edit and delete.
 
 - Username - test
 - Password - test
@@ -11,7 +11,7 @@ In order to edit/delete recipes you must be the reicpe creator. For the prupose 
     - Chocolate pot with ginger
 
 
-For this project I have developed a website using the Flask framework and MongoDB datbase. 
+For this project I have developed a website using the Flask framework and MongoDB database. 
 The purpose of this project was to create a website that users can store and easily access cooking recipes.
 
 Website link below:
@@ -27,9 +27,9 @@ Additionally there are filtering functions on the homepage which allows users to
 ### User stories
 
 - A general users wants to try out some new recipes to advance their cooking abilities.
-- A more advanced cheff want to share their recipes with the world to gain more popularity.
+- A more advanced chef wants to share their recipes with the world to gain more popularity.
 - A catering company are looking for new recipes to add to their portfolio.
-- A user is throwing a dinner party and wants to know the most popular dishes currently.
+- A user is throwing a dinner party and wants to know what the most popular dishes are currently.
 
 ## Wireframes
 
@@ -40,7 +40,7 @@ Additionally there are filtering functions on the homepage which allows users to
 
 2. [Homepage - Mobile wireframe](https://ibb.co/v1BRWmC)
 
-- Again mobile view very similar to the initial design with the variance being the search bar is now nested in the banner. Also the category images are seated with better design.
+- Again the mobile view is very similar to the initial design with the variance being the search bar is now nested in the banner. Also the category images are seated with a better design.
 
 3. [Recipe page - Desktop wireframe](https://ibb.co/NYGNXKv)
 
@@ -150,13 +150,13 @@ In the future I would like to implement the below features.
 
 2. New user wants to create a recipe.
     1. User lands on homepage where the 'register' button is prominently displayed.
-    3. User attempts to create a username however username is taken so is greeted with a message advising to choose a new username.
-    4. User creates new username and is redirected too homepage with a message that displays "hello 'username'" confirming they are logged in.
-    5. User now realises the buttons have changed too 'add recipe' and 'logout' where the previous 'register' and 'login' buttons had been.
-    6. User tries to create recipe but realises their recipe doesn't fall within any of the existing cuisines.
-    7. User adds their own cuisine.
-    8. User attempts to submit recipe without crucial information and is prompted by validation to add requirement information.
-    9. User submits completed recipe and is redirected to the homepage where their recipe is displayed.
+    2. User attempts to create a username however username is taken so is greeted with a message advising to choose a new username.
+    3. User creates new username and is redirected to homepage with a message that displays "hello 'username'" confirming they are logged in.
+    4. User now realises the buttons have changed to 'add recipe' and 'logout' where the previous 'register' and 'login' buttons had been.
+    5. User tries to create recipe but realises their recipe doesn't fall within any of the existing cuisines.
+    6. User adds their own cuisine.
+    7. User attempts to submit recipe without crucial information and is prompted by validation to add requirement information.
+    8. User submits completed recipe and is redirected to the homepage where their recipe is displayed.
 
 3. Existing user wants to edit their recipe.
     1. User selects their own recipe from the homepage.
@@ -194,7 +194,7 @@ In the future I would like to implement the below features.
 3. Initiate new Git repository and run git remote add Heroku https://git.heroku.com/recipe-milestone-project.git to allow a push to the Heroku server.
 4. To prevent a "push fail", the requirements.txt was updated using the following command sudo pip3 freeze --local >requirements.txt to keep track of dependancies.
 5. A Procfile was created using the following code: echo web: python run.py > Procfile to inform Heroku which file to run for initiating the app.
-6. To esnure that Web Processes are running the following command line was run in C9: Heroku ps:scale web=1.
+6. To ensure that Web Processes are running the following command line was run in C9: Heroku ps:scale web=1.
 7. Config Vars set as follows: IP=0.0.0.0 and PORT=5000.
 8. Lastly, dynos were restarted in Heroku app.
 9. Code added, committed and pushed to both GitHub and Heroku.
