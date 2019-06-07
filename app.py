@@ -107,10 +107,7 @@ def insert_recipe():
 @app.route('/contact_requests', methods=['POST'])
 def contact_requests():
     requests = mongo.db.contact_requests
-    requests.insert_one(request.form,
-    {'category_name'
-        
-    })
+    requests.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
 """Displays detailed recipe page by ID"""
@@ -278,4 +275,4 @@ def date_added():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP',),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
